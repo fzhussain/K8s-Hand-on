@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faraz-nginx-deployment-taint-demo
+  labels:
+    app: faraz-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: faraz-nginx
+  template:
+    metadata:
+      labels:
+        app: faraz-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80

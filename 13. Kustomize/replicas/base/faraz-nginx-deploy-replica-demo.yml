@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faraz-nginx-deployment-replica-demo
+  labels:
+    app: faraz-replica-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: faraz-replica-nginx
+  template:
+    metadata:
+      labels:
+        app: faraz-replica-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+

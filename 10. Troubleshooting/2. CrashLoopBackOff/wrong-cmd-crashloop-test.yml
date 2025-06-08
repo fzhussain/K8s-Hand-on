@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faraz-crashloop-example
+  labels:
+    app: faraz-crashloop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: faraz-crashloop
+  template:
+    metadata:
+      labels:
+        app: faraz-crashloop
+    spec:
+      containers:
+      - name: faraz-crashloop
+        image: fzhussain/faraz-flask-hello-world:after-wrong-cmd-fixed-issue
+        ports:
+        - containerPort: 8000

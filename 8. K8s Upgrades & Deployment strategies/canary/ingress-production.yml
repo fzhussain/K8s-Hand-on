@@ -1,0 +1,19 @@
+# Ingress
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: faraz-production-ingress
+  annotations:
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: prod.faraz.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: faraz-production-service
+            port:
+              number: 80

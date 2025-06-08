@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faraz-nginx-deployment-node-affinity
+  labels:
+    app: faraz-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: faraz-nginx
+  template:
+    metadata:
+      labels:
+        app: faraz-nginx
+    spec:
+      affinity:
+       nodeAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+           matchExpressions:
+           - key: node-arch
+             operator: In
+             values:
+             - faraz-windows
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80

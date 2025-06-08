@@ -1,0 +1,9 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faraz-nginx-deployment-replica-demo
+  labels:
+    app: faraz-replica-nginx
+spec:
+  replicas: 4
+

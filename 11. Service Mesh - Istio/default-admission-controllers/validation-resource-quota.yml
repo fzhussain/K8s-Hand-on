@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: faraz-quota-demo
+  namespace: validation-admission-controller-demo 
+spec:
+  hard:
+    cpu: "1"
+    memory: 2Gi
+
