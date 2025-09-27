@@ -1,0 +1,8 @@
+deployment:
+  name: faraz-web-server
+  image: nginx
+  replica: 2
+
+service:
+  name: faraz-web-service
+  nodePort: 30156
